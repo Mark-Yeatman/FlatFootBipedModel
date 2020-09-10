@@ -1,0 +1,1 @@
+posCoM=[(1/4).*(Mf+Ms).^(-1).*(lf.*Mf.*cos(x(3)+x(4)+x(5))+2.*(2.*lt.*(Mf+Ms).*sin(x(3))+ls.*(2.*Mf+Ms).*sin(x(3)+x(4))+la.*Mf.*sin(x(3)+x(4)+x(5)))+4.*(Mf+Ms).*x(1)),(1/4).*(Mf+Ms).^(-1).*((-2).*(2.*lt.*(Mf+Ms).*cos(x(3))+ls.*(2.*Mf+Ms).*cos(x(3)+x(4))+la.*Mf.*cos(x(3)+x(4)+x(5)))+lf.*Mf.*sin(x(3)+x(4)+x(5))+4.*(Mf+Ms).*x(2)),0];
