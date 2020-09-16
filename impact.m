@@ -32,7 +32,6 @@ function [xnext,F] = RigidImpactMap(xprev)
     %relabeling matrix
     global flowdata 
     dim = flowdata.Parameters.dim;
-    params = cell2mat(flowdata.Parameters.Biped.values);
     if flowdata.Flags.step_done %if you want to swap the coordinates AND THEN apply the map, you need to change this matrix so that the x,y coordinates aren't in the nullspace
         R = [zeros(1,dim/2);
              zeros(1,dim/2);
@@ -45,8 +44,8 @@ function [xnext,F] = RigidImpactMap(xprev)
 
     qnextmapped =  R*qprev;  
     
-    M = M_func(xprev',params);
-    [A,~] = flowdata.getConstraintMtxs(xprev',params);
+    M = M_func(xprev');
+    [A,~] = flowdata.getConstraintMtxs(xprev(1:dim/2)',xprev(dim/2+1:end)');
     a = min(size(A)); %number of constraints
     temp = [M,-A';A,zeros(a)]\[M*qdotprev;zeros(a,1)];
     

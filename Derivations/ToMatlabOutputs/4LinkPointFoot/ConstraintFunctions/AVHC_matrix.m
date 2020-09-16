@@ -1,1 +1,0 @@
-Avhc=[0,0,lt.*(sin(x(3)+x(4))+sin(x(3)+x(4)+x(5)))+ls.*(sin(x(3))+sin(x(3)+x(4)+x(5)+x(6))),lt.*(sin(x(3)+x(4))+sin(x(3)+x(4)+x(5)))+ls.*sin(x(3)+x(4)+x(5)+x(6)),lt.*sin(x(3)+x(4)+x(5))+ls.*sin(x(3)+x(4)+x(5)+x(6)),ls.*sin(x(3)+x(4)+x(5)+x(6))];

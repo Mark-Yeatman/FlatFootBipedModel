@@ -1,2 +1,0 @@
-Current Configuration: Double Support
-This configuration has a heel, flat, toe, and double support walking phases. The mass parameters are baked into the simulation functions by makeMatlabFunctionsCompass.m 

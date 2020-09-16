@@ -1,4 +1,4 @@
-function [COM] = draw7Link(xi,flag,i,t,out_extra)
+function [COM] = draw7Link(xi,flag, i, t, out_extra, step_num, phase_num)
     %DRAW4LINK Summary of this function goes here
     %   Detailed explanation goes here
     global flowdata

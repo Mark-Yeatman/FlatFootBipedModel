@@ -1,0 +1,8 @@
+function cost = IK_SLIP_cost(x,params,SLIP_xy)
+    %IK_COST Summary of this function goes here
+    %   Detailed explanation goes here
+    hip_pose = Hip_pos_func(x,params);
+    hip_xy = hip_pose(1:2,4);
+    e = 
+end
+

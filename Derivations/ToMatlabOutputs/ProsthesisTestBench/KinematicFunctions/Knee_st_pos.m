@@ -1,1 +1,0 @@
-posKnee=expKst;

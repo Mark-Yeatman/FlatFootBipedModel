@@ -1,2 +1,0 @@
-Current Configuration: CompassGait
-This configuration is supposed to act like the compass gait model, by locking the knees on the 4 link biped. The mass parameters come from Spongs 2007 Passivity Based Control of Biped Walking. The mass parameters are baked into the simulation functions by makeMatlabFunctionsCompass.m 

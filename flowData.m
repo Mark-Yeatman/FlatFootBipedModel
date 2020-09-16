@@ -151,7 +151,7 @@ classdef flowData < handle
                 end                
             end
         end
-        function [A,Adot] = getConstraintMtxs(this,x,params)
+        function [A,Adot] = getConstraintMtxs(this,q,qdot)
             %getConstraintMtxs computes the current constraints matrices A,Adot based
             %on current phase and current configuration
             cnum = length(this.State.c_configs);
@@ -159,16 +159,16 @@ classdef flowData < handle
             A = [];
             Adot = [];
             if this.Flags.step_done
-                A = this.End_Step.A(x,params);
-                Adot = this.End_Step.Adot(x,params);
+                A = this.End_Step.A(q,qdot);
+                Adot = this.End_Step.Adot(q,qdot);
             elseif isfield(this.Phases,this.State.c_phase)
-                A = this.Phases.(this.State.c_phase).A(x,params);
-                Adot = this.Phases.(this.State.c_phase).Adot(x,params);
+                A = this.Phases.(this.State.c_phase).A(q,qdot);
+                Adot = this.Phases.(this.State.c_phase).Adot(q,qdot);
             end
             
             for i=1:cnum
-               A = [A;this.Configs.(this.State.c_configs{i}).A(x,params)];
-               Adot = [Adot;this.Configs.(this.State.c_configs{i}).Adot(x,params)];
+               A = [A;this.Configs.(this.State.c_configs{i}).A(q,qdot)];
+               Adot = [Adot;this.Configs.(this.State.c_configs{i}).Adot(q,qdot)];
             end
         end
         function resetFlags(this)

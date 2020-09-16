@@ -1,1 +1,0 @@
-G=[0;g.*(Mf+Ms+Mt);(1/4).*g.*(lf.*Mf.*cos(x(3)+x(4)+x(5))+2.*(lt.*(2.*(Mf+Ms)+Mt).*sin(x(3))+ls.*(2.*Mf+Ms).*sin(x(3)+x(4))+la.*Mf.*sin(x(3)+x(4)+x(5))));(1/4).*g.*(lf.*Mf.*cos(x(3)+x(4)+x(5))+2.*ls.*(2.*Mf+Ms).*sin(x(3)+x(4))+2.*la.*Mf.*sin(x(3)+x(4)+x(5)));(1/4).*g.*Mf.*(lf.*cos(x(3)+x(4)+x(5))+2.*la.*sin(x(3)+x(4)+x(5)))];

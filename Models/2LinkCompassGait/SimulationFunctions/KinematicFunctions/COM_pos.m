@@ -1,1 +1,0 @@
-posCoM=[(Mh+2.*Ms).^(-1).*((-1).*(a.*Ms+l.*(Mh+Ms)).*sin(x(3))+(-1).*(b.*Mh+a.*(Mh+Ms)+(-1).*l.*(Mh+Ms)).*sin(x(3)+x(4))+(Mh+2.*Ms).*x(1)),(Mh+2.*Ms).^(-1).*((a.*Ms+l.*(Mh+Ms)).*cos(x(3))+(b.*Mh+a.*(Mh+Ms)+(-1).*l.*(Mh+Ms)).*cos(x(3)+x(4))+(Mh+2.*Ms).*x(2)),0];
