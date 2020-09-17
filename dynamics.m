@@ -13,7 +13,7 @@ global flowdata
         % Calculate the dynamics 's'
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
             dim = flowdata.Parameters.dim;
-            %params = cell2mat(flowdata.Parameters.Biped.values);
+            params = flowdata.Parameters.Biped.asvec;
             
             if any(isnan(x))
                 warning('Got some nans in the input')
@@ -24,9 +24,9 @@ global flowdata
             %Contact constraints 
             [A,Adot] = flowdata.getConstraintMtxs(q,qdot);
            
-            M = M_func(x);
-            C = C_func(x);
-            G = G_func(x); 
+            M = M_func(x,params);
+            C = C_func(x,params);
+            G = G_func(x,params); 
             
             %Control Functions
             u = zeros(dim/2,1);

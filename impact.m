@@ -43,8 +43,8 @@ function [xnext,F] = RigidImpactMap(xprev)
     qdotprev = xprev(dim/2+1:dim)';
 
     qnextmapped =  R*qprev;  
-    
-    M = M_func(xprev');
+    params = flowdata.Parameters.Biped.asvec;
+    M = M_func(xprev',params);
     [A,~] = flowdata.getConstraintMtxs(xprev(1:dim/2)',xprev(dim/2+1:end)');
     a = min(size(A)); %number of constraints
     temp = [M,-A';A,zeros(a)]\[M*qdotprev;zeros(a,1)];

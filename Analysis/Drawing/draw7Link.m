@@ -3,7 +3,7 @@ function [COM] = draw7Link(xi,flag, i, t, out_extra, step_num, phase_num)
     %   Detailed explanation goes here
     global flowdata
     slope = flowdata.Parameters.Environment.slope;
-    
+    params = flowdata.Parameters.Biped.asvec;
     grey = [0.3, 0.3, 0.3];
     brown = [0.396, 0.263, 0.129];
     
@@ -25,14 +25,14 @@ function [COM] = draw7Link(xi,flag, i, t, out_extra, step_num, phase_num)
     
     % Determine the hip and feet positions in 2D space
     heelJoint =  [heelx,heely];
-    toeJoint = Toe_St_pos_func(xi);
-    ankJoint = Ankle_St_pos_func(xi);
-    kneeJoint = Knee_St_pos_func(xi);
-    hipJoint = Hip_pos_func(xi);
-    swkneeJoint = Knee_Sw_pos_func(xi);
-    swankJoint = Ankle_Sw_pos_func(xi);
-    swheelJoint = Heel_Sw_pos_func(xi);
-    swtoeJoint =  Toe_Sw_pos_func(xi);
+    toeJoint = Toe_St_pos_func(xi,params);
+    ankJoint = Ankle_St_pos_func(xi,params);
+    kneeJoint = Knee_St_pos_func(xi,params);
+    hipJoint = Hip_pos_func(xi,params);
+    swkneeJoint = Knee_Sw_pos_func(xi,params);
+    swankJoint = Ankle_Sw_pos_func(xi,params);
+    swheelJoint = Heel_Sw_pos_func(xi,params);
+    swtoeJoint =  Toe_Sw_pos_func(xi,params);
     
     %Set up lines to plot
     x_pros = [toeJoint(1,4) heelJoint(1) ankJoint(1,4) kneeJoint(1,4) hipJoint(1,4)];
@@ -40,7 +40,7 @@ function [COM] = draw7Link(xi,flag, i, t, out_extra, step_num, phase_num)
     x_bod = [hipJoint(1,4) swkneeJoint(1,4) swankJoint(1,4) swheelJoint(1,4) swtoeJoint(1,4)];
     y_bod = [hipJoint(2,4) swkneeJoint(2,4) swankJoint(2,4) swheelJoint(2,4) swtoeJoint(2,4)];
 
-    COM = COM_pos_func(xi);
+    COM = COM_pos_func(xi,params);
     
     %pointArray{1} = [x_1;y_1];
     %pointArray{2} = [x_2;y_2];

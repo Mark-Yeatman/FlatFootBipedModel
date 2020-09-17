@@ -5,7 +5,7 @@ function E = MechE_func(x)
     
     xdatum = x;    
     xdatum(2) = x(2) - flowdata.State.PE_datum;
-    
-    E = KE_func(xdatum) + PE_func(xdatum);
+    params = flowdata.Parameters.Biped.asvec;
+    E = KE_func(xdatum) + PE_func(xdatum,params);
 end
 

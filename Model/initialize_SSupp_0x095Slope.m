@@ -18,12 +18,13 @@ flowdata.Flags.silent = false;
 flowdata.Flags.ignore = true;
 
 %Simulation parameters
-flowdata.Parameters.Environment.slope = 0.095;   %ground slope
+flowdata.Parameters.Environment.slope = -0.095;   %ground slope
 flowdata.Parameters.dim = 16;        %state variable dimension
 
 %Biped Parameters
 flowdata.Parameters.Biped = load('MassInertiaGeometry');
-
+load('MassInertiaGeometry');
+flowdata.Parameters.Biped.asvec = [Mt Ms Mh Mf lt ls lf la Itz Ity Itx Isz Isx Isy Ihz Ihx Ihy];
 %Discrete Mappings 
 flowdata.setPhases({'Heel','Flat','Toe'})
 flowdata.setConfigs({})
@@ -48,7 +49,6 @@ flowdata.setImpacts();
 
 %Load initial condition 
 load('xi.mat')
-xi
 %Load PD control parameters
 flowdata.Parameters.PD = load('PDControlParameters.mat');
 
