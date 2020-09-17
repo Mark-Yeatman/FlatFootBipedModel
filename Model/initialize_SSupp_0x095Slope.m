@@ -49,7 +49,8 @@ flowdata.setImpacts();
 
 %Load initial condition 
 load('xi.mat')
+xi(3:end) = -xi(3:end);
 %Load PD control parameters
 flowdata.Parameters.PD = load('PDControlParameters.mat');
-
+flowdata.Parameters.PD.setpos = -flowdata.Parameters.PD.setpos;
 

@@ -7,7 +7,7 @@ global flowdata
     lf = flowdata.Parameters.Biped.lf;
     Lambda = feval(flowdata.eqnhandle, 0, x, 'L');
     cop_ff = Foot_CoP(Lambda);
-    COP2Toe = lf+cop_ff;
+    COP2Toe = -lf+cop_ff;
      
     e = 0.001;  
     

@@ -6,9 +6,12 @@ global flowdata
     la = flowdata.Parameters.Biped.la;
     l1 = flowdata.Parameters.Biped.ls;
     l2 = flowdata.Parameters.Biped.lt;
-    slope = flowdata.Parameters.Environment.slope;
+    slope = -flowdata.Parameters.Environment.slope;
     
     x = [q;qdot];
+    x(1)=0;
+    x(2)=0;
+    x = -x;
     out(1) = la.*cos(x(3))+l1.*cos(x(3)+x(4))+l2.*cos(x(3)+x(4)+x(5))+( ...
     -1).*l2.*cos(x(3)+x(4)+x(5)+x(6))+(-1).*l1.*cos(x(3)+x(4)+x( ...
     5)+x(6)+x(7))+(-1).*la.*cos(x(3)+x(4)+x(5)+x(6)+x(7)+x(8))+( ...

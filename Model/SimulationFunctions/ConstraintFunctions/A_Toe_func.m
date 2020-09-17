@@ -5,6 +5,6 @@ global flowdata
     A(1,1)=1;
     A(1,3)=lf*sin(q(3));
     A(2,2)=1;
-    A(2,3)=-lf*cos(q(3));
+    A(2,3)=lf*cos(q(3));
 end
 

@@ -3,5 +3,5 @@ global flowdata
     
     value      = (x(3) - flowdata.Parameters.Environment.slope)<0;
     isterminal = 1;
-    direction  =  -1;
+    direction  =  0;
 end
