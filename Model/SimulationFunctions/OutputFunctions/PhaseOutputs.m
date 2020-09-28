@@ -1,14 +1,12 @@
 function outputs = PhaseOutputs(t,y,xin)
 global flowdata
-     dim = flowdata.Parameters.dim;
-     outputs.name = flowdata.State.c_phase;
-     outputs.configs = flowdata.State.c_configs;
-    %     outputs.ConstForces = nan(4,length(t))';
-     outputs.x_start = xin;
+    dim = flowdata.Parameters.dim;
+    outputs.name = flowdata.State.c_phase;
+    outputs.configs = flowdata.State.c_configs;
+    outputs.x_start = xin;
+    outputs.GRF = zeros(length(t),8);
     for i = 1:length(t)
-%         [cop_ff,cop_gf] = COP_func(y(i,:)');
-%         cop_xy = -cop_gf(1:2)'+xin(1:2);
-%         outputs.COP(i,:) = cop_xy;
+
         Ltemp = feval(flowdata.eqnhandle, t(i), y(i,:)', 'L');
         if strcmp(outputs.name,"Flat")
             outputs.COP(i) = Foot_CoP(Ltemp);
@@ -20,14 +18,15 @@ global flowdata
         outputs.u(i,:) = flowdata.eqnhandle(t(i),y(i,:)','u');
         q = y(i,1:dim/2);
         qdot = y(i,dim/2+1:dim);
-        outputs.u_pd(i,:) = PDControl4Phase(y(i,:)');
+        %outputs.u_pd(i,:) = SetPoint_PD_Control(y(i,:)');
         outputs.FootClearance(i) = swingFootClearance(y(i,:)');
-        %outputs.GRF(i,:) = getGroundReactionForces(t(i),y(i,:)');  
+        temp = dynamics(t(i),y(i,:)','L');
+        outputs.GRF(i,1:length(temp)) = temp;  
         outputs.MechE(i) = flowdata.E_func(y(i,:)');
         outputs.Work(i) = y(i,end);
     end
     if strcmp(outputs.name,"Flat")
-            outputs.minFC = min(outputs.FootClearance);
+        outputs.minFC = min(outputs.FootClearance);
     end
     %make coloumn vectors
     outputs.COP = outputs.COP(:);

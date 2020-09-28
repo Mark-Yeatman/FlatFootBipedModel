@@ -21,8 +21,8 @@ global flowdata
         %over step data
         outputs.COP = [outputs.COP; data{1}.COP];   
         outputs.u = [outputs.u; data{1}.u];   
-        outputs.u_pd = [outputs.u_pd; data{1}.u_pd];   
-        %outputs.GRF = [outputs.GRF; data{1}.GRF];   
+        %outputs.u_pd = [outputs.u_pd; data{1}.u_pd];   
+        outputs.GRF = [outputs.GRF; data{1}.GRF];   
         outputs.FootClearance = [outputs.FootClearance, data{1}.FootClearance];  
         outputs.MechE = [outputs.MechE, data{1}.MechE];
         outputs.Work =  [outputs.Work, data{1}.Work];

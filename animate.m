@@ -89,7 +89,7 @@ function animate(drawfunc, x, t, out_extra, timescale, moviename)
                 end
             end
             %new phase
-            if ( t(i) > out_extra.steps{step_num}.phases{phase_num}.tend ) && ( phase_num < length(out_extra.steps{step_num}.phases) ) 
+            if ( t(i) > out_extra.steps{step_num}.phases{phase_num}.t_end ) && ( phase_num < length(out_extra.steps{step_num}.phases) ) 
                 phase_num = phase_num+1;
                 phase_name = out_extra.steps{step_num}.phases{phase_num}.phase_name;
                 if isfield(out_extra.steps{step_num}.phases{phase_num},'configs')

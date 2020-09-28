@@ -12,9 +12,9 @@ function makeMatlabFunctions()
     addpath(genpath(SymFuncsPath))
    
     %Make readme for the model and config. 
-    fid = fopen(strcat(configFolder,'\info.txt'), 'wt' );
-    fprintf( fid,'Current Configuration: Double Support\nThis configuration has a heel, flat, toe, and double support walking phases. The mass parameters are baked into the simulation functions by makeMatlabFunctionsCompass.m ');
-    fclose(fid);
+    %fid = fopen(strcat(configFolder,'\info.txt'), 'wt' );
+    %fprintf( fid,'Current Configuration: Double Support\nThis configuration has a heel, flat, toe, and double support walking phases. The mass parameters are baked into the simulation functions by makeMatlabFunctionsCompass.m ');
+    %fclose(fid);
     
     %Which physical parameters to use
     %load('MassInertiaGeometry.mat') 
@@ -28,16 +28,16 @@ function makeMatlabFunctions()
     x = sym('x',[dim,1]);
     a = sym('a',[dim/2,1]);
 
-    M_matrix
-    C_matrix
-    G_matrix
+%     M_matrix
+%     C_matrix
+%     G_matrix
     COM_accel
     folder = strcat(configFolder,'\DynamicsFunctions\');
     status = mkdir(folder);
     %The mass matrix isn't quite right for some reason
-    matlabFunction(M,   'File',strcat(folder,'M_func'),'Vars',{x,params})
-    matlabFunction(Cmat,'File',strcat(folder,'C_func'),'Vars',{x,params})
-    matlabFunction(G,   'File',strcat(folder,'G_func'),'Vars',{x,params})
+%     matlabFunction(M,   'File',strcat(folder,'M_func'),'Vars',{x,params})
+%     matlabFunction(Cmat,'File',strcat(folder,'C_func'),'Vars',{x,params})
+%     matlabFunction(G,   'File',strcat(folder,'G_func'),'Vars',{x,params})
     matlabFunction(ddCoM,'File',strcat(folder,'COM_accel_func'),'Vars',{x,a,params})
 
     %Kinetic_energy

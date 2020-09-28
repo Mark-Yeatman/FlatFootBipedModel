@@ -1,9 +1,7 @@
 function Adot = Adot_Toe_func(q,qdot)
 global flowdata
     lf = flowdata.Parameters.Biped.lf;
-
-    Adot=zeros(2,8);       
-    Adot(1,3)=lf*cos(q(3))*qdot(3);
-    Adot(2,3)=-lf*sin(q(3))*qdot(3);    
+    x = [q;qdot];
+    Adot = [[0,0,(-1).*lf.*cos(x(3)).*x(11),0,0,0,0,0];[0,0,(-1).*lf.*sin(x(3)).*x(11),0,0,0,0,0]];   
 end
 
